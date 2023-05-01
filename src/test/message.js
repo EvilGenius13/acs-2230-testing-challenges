@@ -98,6 +98,8 @@ describe('Message API endpoints', () => {
     // check that user is actually inserted into database
     const message = await Message.findOne({ title: 'Updated Title' });
     expect(message).to.be.an('object');
+    expect(message).to.not.equal(null);
+    expect(message.title).to.equal('Updated Title');
   });
 
   it('should delete a message', async () => {
